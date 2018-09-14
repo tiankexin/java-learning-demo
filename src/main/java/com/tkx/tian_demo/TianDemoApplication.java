@@ -1,6 +1,8 @@
 package com.tkx.tian_demo;
 
-import com.tkx.tian_demo.dao.CustomerRepository;
+import com.tkx.tian_demo.models.Person;
+import com.tkx.tian_demo.repository.dev.PersonRepository;
+import com.tkx.tian_demo.repository.test.CustomerRepository;
 import com.tkx.tian_demo.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -13,20 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class TianDemoApplication {
 
 	@Autowired
-	private CustomerRepository repository;
+	private CustomerRepository customerRepository;
 
-	@RequestMapping("/")
+	@Autowired
+	private PersonRepository personRepository;
+
+	@RequestMapping("/initialize")
 	String index(){
-		repository.deleteAll();
+		customerRepository.deleteAll();
 
 		// save a couple of customers
-		repository.save(new Customer("Alice", "Smith"));
-		repository.save(new Customer("Bob", "Smith"));
+		customerRepository.save(new Customer("Alice", "Smith"));
+		customerRepository.save(new Customer("Bob", "Smith"));
 
 		// fetch all customers
 		System.out.println("Customers found with findAll():");
 		System.out.println("-------------------------------");
-		for (Customer customer : repository.findAll()) {
+		for (Customer customer : customerRepository.findAll()) {
 			System.out.println(customer);
 		}
 		System.out.println();
@@ -34,15 +39,29 @@ public class TianDemoApplication {
 		// fetch an individual customer
 		System.out.println("Customer found with findByFirstName('Alice'):");
 		System.out.println("--------------------------------");
-		System.out.println(repository.findByFirstName("Alice"));
+		System.out.println(customerRepository.findByFirstName("Alice"));
 
 		System.out.println("Customers found with findByLastName('Smith'):");
 		System.out.println("--------------------------------");
-		for (Customer customer : repository.findByLastName("Smith")) {
+		for (Customer customer : customerRepository.findByLastName("Smith")) {
 			System.out.println(customer);
 		}
-		Customer last_customer = repository.findByLastName("Smith").get(0);
-		return last_customer.getId();
+		Customer lastCustomer = customerRepository.findByLastName("Smith").get(0);
+		return lastCustomer.getId();
+	}
+
+	@RequestMapping("/person/add")
+	String addPerson (String name, Integer age){
+		Person p = new Person(name, age);
+		personRepository.save(p);
+		return p.toString();
+	}
+
+	@RequestMapping("/customer/add")
+	String addCustomer(String firstName, String lastName){
+		Customer c = new Customer(firstName, lastName);
+		customerRepository.save(c);
+		return c.toString();
 	}
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.tkx.tian_demo.dao;
+package com.tkx.tian_demo.repository.test;
 
 import com.tkx.tian_demo.models.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
