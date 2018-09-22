@@ -1,0 +1,11 @@
+package com.tkx.tian_demo.rule_service;
+
+
+rule "Is of valid age" // 给规则取个名
+when
+    $a : RuleApplication( age < 18 ) // 规则
+then
+    // 符合规则后执行的操作，是Java代码
+    $a.valid = false;
+    System.out.println($a.name + "小于18岁，不能申请");
+end

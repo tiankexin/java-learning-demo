@@ -1,0 +1,6 @@
+
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="kbase1" packages="com.tkx.tian_demo.rule_service">
+        <ksession name="ksession1" />
+    </kbase>
+</kmodule>

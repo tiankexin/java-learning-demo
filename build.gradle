@@ -30,6 +30,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter:1.5.15.RELEASE')
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	compile("org.springframework.boot:spring-boot-starter-web:1.5.15.RELEASE")
+	compile group: 'org.kie', name: 'kie-api', version: '7.5.0.Final'
+	compile group: 'org.drools', name: 'drools-compiler', version: '7.5.0.Final'
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
