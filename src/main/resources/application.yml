@@ -7,4 +7,4 @@ mongodb:
     uri: "mongodb://fulishe:$uQKq5Nr2M&8@fls-dev:27018/tian_demo?authsource=admin"
 
   dev_demo:
-    uri: "mongodb://127.0.0.1:27017/tian_demo?authsource=admin"
+    uri: "mongodb://127.0.0.1:27017/judgement?authsource=admin"

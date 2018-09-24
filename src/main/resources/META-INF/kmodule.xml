@@ -3,4 +3,8 @@
     <kbase name="kbase1" packages="com.tkx.tian_demo.rule_service">
         <ksession name="ksession1" />
     </kbase>
+
+    <kbase name="kbase2" packages="com.rules">
+        <ksession name="ksession2" />
+    </kbase>
 </kmodule>
