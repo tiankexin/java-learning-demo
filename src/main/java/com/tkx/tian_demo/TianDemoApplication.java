@@ -1,6 +1,7 @@
 package com.tkx.tian_demo;
 
 import com.tkx.tian_demo.models.Person;
+import com.tkx.tian_demo.models.TestScopeDemo;
 import com.tkx.tian_demo.repository.dev.PersonRepository;
 import com.tkx.tian_demo.repository.test.CustomerRepository;
 import com.tkx.tian_demo.models.Customer;
@@ -62,6 +63,15 @@ public class TianDemoApplication {
 		Customer c = new Customer(firstName, lastName);
 		customerRepository.save(c);
 		return c.toString();
+	}
+
+	@RequestMapping("test/scope")
+	String testScope(@Autowired TestScopeDemo testScopeDemo){
+		System.out.println("AAAAAAAAAAAAAAA" + testScopeDemo);
+		testScopeDemo.play();
+		System.out.println("AAAAAAAAAAAAA" + testScopeDemo);
+		testScopeDemo.play();
+		return "AAAAAAA";
 	}
 
 	public static void main(String[] args) {

@@ -37,11 +37,4 @@ public class SellerFreeze {
     @Field("updated_at")
     private Date updatedAt;
 
-    public String toString(){
-        return String.format(
-                "FreezeSeller[id=%s, Name='%s']",
-                id, shopName);
-    }
-
-
 }

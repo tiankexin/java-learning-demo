@@ -7,11 +7,11 @@ import com.tkx.tian_demo.repository.dev.SellerFreezeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
-@Service
+@Repository
 public class SellerFreezeRepositoryImpl implements SellerFreezeCus{
 
     @Autowired
